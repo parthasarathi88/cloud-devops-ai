@@ -1,0 +1,5 @@
+# Override default variables here
+# Example:
+# resource_group_location = "West US"
+# vm_size = "Standard_B2s"
+# username = "azureuser"

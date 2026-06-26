@@ -1,0 +1,18 @@
+# Ignore everything by default
+*
+.*
+
+# Allow git files
+!.gitignore
+!.git
+!.gitattributes
+
+# Unignore the path to the target folder (level by level)
+!azure/
+!azure/az-104/
+!azure/az-104/createVm/
+!azure/az-104/createVm/createLinuxVm/
+!azure/az-104/createVm/createLinuxVm/createLinuxVmGeneric/
+
+# Allow all files and subdirectories under the target folder
+!azure/az-104/createVm/createLinuxVm/createLinuxVmGeneric/**

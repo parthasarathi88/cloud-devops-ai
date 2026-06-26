@@ -1,0 +1,104 @@
+###############################################################################
+# Terraform State & Locks
+###############################################################################
+# Local terraform state (state is stored in Azure Storage)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+*.tfstate.backup
+
+###############################################################################
+# Azure Credentials & Secrets (DO NOT COMMIT)
+###############################################################################
+# Provider configuration with embedded credentials
+# NOTE: Use environment variables instead:
+#   export ARM_CLIENT_ID="..."
+#   export ARM_CLIENT_SECRET="..."
+#   export ARM_TENANT_ID="..."
+#   export ARM_SUBSCRIPTION_ID="..."
+providers-secrets.tf
+backend-config.hcl
+
+# Terraform variables with sensitive values
+*.tfvars
+!terraform.tfvars.example
+terraform.tfvars.*.secret
+
+###############################################################################
+# SSH Keys & Private Keys (NEVER COMMIT)
+###############################################################################
+*.pem
+*.ppk
+*.key
+*.pub
+pvt-key*
+private_key*
+public_key*
+ssh-key*
+id_rsa*
+id_ed25519*
+
+###############################################################################
+# IDE & Editor
+###############################################################################
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+*.sublime-workspace
+.vim/
+
+###############################################################################
+# OS
+###############################################################################
+.DS_Store
+.env
+.env.local
+.env.*.local
+Thumbs.db
+
+###############################################################################
+# Build & Runtime
+###############################################################################
+*.log
+*.tmp
+.terraform.tfvars.lock.hcl
+terraform.tfstate.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+###############################################################################
+# Logs & Artifacts
+###############################################################################
+*.log
+wget-log*
+initial-azurerm-backend-terraform.sh.log
+init-terraform.sh.log
+terraform.log
+plan.out
+apply.log
+
+###############################################################################
+# Version Control Artifacts
+###############################################################################
+*.tf,v
+*.tfstate,v
+*.json,v
+
+###############################################################################
+# Temporary files
+###############################################################################
+/tmp/
+.temp/
+*.bak
+*.swp
+
