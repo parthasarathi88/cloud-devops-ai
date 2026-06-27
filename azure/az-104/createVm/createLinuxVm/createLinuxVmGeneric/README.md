@@ -4,7 +4,7 @@
 This Terraform configuration creates an Azure Linux VM with networking, security groups, and SSH key management.
 
 ## Remote State Backend
-- **Storage Account:** `tfstate1782441065`
+- **Storage Account:** `your-storage-account-name`
 - **Container:** `tfstate`
 - **Location:** Central India
 - **Region:** centralindia
@@ -185,7 +185,7 @@ Key variables defined in `variables.tf`:
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `resource_group_location` | Central India | Azure region |
-| `resource_group_name_prefix` | pt19881rg | Resource group name |
+| `resource_group_name_prefix` | your-resource-group-prefix | Resource group name |
 | `virtual_network` | pt1988vnet | VNet name |
 | `vm_size` | Standard_B1ls | VM instance type |
 | `username` | partha | VM admin username |
@@ -201,7 +201,7 @@ The configuration outputs:
 
 ## Resources Created
 
-1. **Resource Group** (`pt19881rg`)
+1. **Resource Group** (auto-generated from prefix)
 2. **Virtual Network** with subnet
 3. **Public IP Address**
 4. **Network Security Group** (SSH, HTTP access)

@@ -23,10 +23,10 @@ fi
 
 echo ""
 echo "📋 Project Configuration:"
-echo "  Resource Group: pt19881rg"
-echo "  Storage Account: tfstate1782441065"
+echo "  Resource Group: <generated from ARM_RESOURCE_GROUP_NAME>"
+echo "  Storage Account: <from ARM_STORAGE_ACCOUNT>"
 echo "  Region: Central India"
-echo "  Subscription: axis-airtel"
+echo "  Subscription: <from ARM_SUBSCRIPTION_ID>"
 echo ""
 
 # Check Azure authentication

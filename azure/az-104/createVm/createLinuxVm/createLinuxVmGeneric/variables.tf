@@ -6,12 +6,12 @@ variable "resource_group_location" {
 
 variable "resource_group_name_prefix" {
   type        = string
-  default     = "pt19881rg"
+  default     = "my-rg"
   description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
 }
 
 variable "virtual_network" {
-  default	= "pt1988vnet"
+  default	= "my-vnet"
 }
 
 variable "vnet_address_space" {
