@@ -17,7 +17,7 @@ resource "azurerm_subnet" "pt1988-tf-az104_subnet" {
   name                 = var.virtual_network_subnet
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.pt1988-tf-az104_network.name
-  address_prefixes     = var.vnet_subnet-1-address_space
+  address_prefixes     = var.vnet_subnet_1_address_space
 }
 
 # Create public IPs
@@ -121,7 +121,6 @@ resource "azurerm_linux_virtual_machine" "pt1988-tf-az104_vm" {
 
   computer_name  = "pt1988vm"
   admin_username = var.username
-  admin_password = var.password
 
 
   boot_diagnostics {
