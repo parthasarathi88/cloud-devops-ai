@@ -34,7 +34,7 @@ CURRENT_ACCOUNT=$(az account show --query user.name -o tsv 2>/dev/null)
 if [ $? -eq 0 ]; then
     echo "✅ Azure Account: $CURRENT_ACCOUNT"
 else
-    echo "❌ Not logged in to Azure. Run: az login --tenant 2fc9152b-9178-4d6b-8ae8-45f9efe2edfa"
+    echo "❌ Not logged in to Azure. Run: az login --tenant <your-tenant-id>"
     exit 1
 fi
 

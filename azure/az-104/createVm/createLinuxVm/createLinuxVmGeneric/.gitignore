@@ -12,6 +12,11 @@ crash.log
 ###############################################################################
 # Azure Credentials & Secrets (DO NOT COMMIT)
 ###############################################################################
+# Environment files with credentials
+.env
+.env.*
+!.env.example
+
 # Provider configuration with embedded credentials
 # NOTE: Use environment variables instead:
 #   export ARM_CLIENT_ID="..."

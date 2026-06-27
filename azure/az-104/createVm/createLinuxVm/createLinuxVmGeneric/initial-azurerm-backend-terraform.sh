@@ -175,8 +175,8 @@ check_file ".terraform.lock.hcl"
 
 print_header "4. AZURE AUTHENTICATION"
 
-# Tenant ID from backend config
-TENANT_ID="2fc9152b-9178-4d6b-8ae8-45f9efe2edfa"
+# Tenant ID from backend config (replace with your actual tenant ID)
+TENANT_ID="your-tenant-id-here"
 
 # Check Azure login
 if az account show &> /dev/null; then
@@ -363,7 +363,7 @@ else
     fi
     
     echo "Common fixes:"
-    echo "  - Login to Azure: ${YELLOW}az login --tenant 2fc9152b-9178-4d6b-8ae8-45f9efe2edfa${NC}"
+    echo "  - Login to Azure: ${YELLOW}az login --tenant <your-tenant-id>${NC}"
     echo "  - Reinstall Terraform: ${YELLOW}brew install terraform${NC}"
     echo "  - Update Azure CLI: ${YELLOW}az upgrade${NC}"
     echo ""

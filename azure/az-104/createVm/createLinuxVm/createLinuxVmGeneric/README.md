@@ -37,8 +37,8 @@ Edit `.env` and add your Azure credentials:
 ```bash
 export ARM_CLIENT_ID="your-client-id"
 export ARM_CLIENT_SECRET="your-client-secret"
-export ARM_TENANT_ID="2fc9152b-9178-4d6b-8ae8-45f9efe2edfa"
-export ARM_SUBSCRIPTION_ID="9377b510-ee3e-413b-bed0-ead0c0b7d639"
+export ARM_TENANT_ID="your-tenant-id"
+export ARM_SUBSCRIPTION_ID="your-subscription-id"
 ```
 
 Load environment variables:
@@ -50,8 +50,8 @@ Or set them individually:
 ```bash
 export ARM_CLIENT_ID="your-client-id"
 export ARM_CLIENT_SECRET="your-client-secret"
-export ARM_TENANT_ID="2fc9152b-9178-4d6b-8ae8-45f9efe2edfa"
-export ARM_SUBSCRIPTION_ID="9377b510-ee3e-413b-bed0-ead0c0b7d639"
+export ARM_TENANT_ID="your-tenant-id"
+export ARM_SUBSCRIPTION_ID="your-subscription-id"
 ```
 
 ⚠️ **IMPORTANT:** `.env` is in `.gitignore` - never commit credentials to git!
