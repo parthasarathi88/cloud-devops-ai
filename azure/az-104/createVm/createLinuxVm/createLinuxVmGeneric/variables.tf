@@ -6,12 +6,12 @@ variable "resource_group_location" {
 
 variable "resource_group_name_prefix" {
   type        = string
-  default     = "my-rg"
+  default     = "rg-pa883-prod-01"
   description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
 }
 
 variable "virtual_network" {
-  default	= "my-vnet"
+  default	= "vnet-pa883-prod-01"
 }
 
 variable "vnet_address_space" {
@@ -21,29 +21,29 @@ variable "vnet_address_space" {
 }
 
 variable "virtual_network_subnet" {
-  default	= "pt1988vnet-subnet-1"
+  default	= "subnet-pa883-prod-01"
 }
 
-variable "vnet_subnet-1-address_space" {
+variable "vnet_subnet_1_address_space" {
   description = "The address space that is used by the virtual network."
   type        = list(string)
   default     = ["10.0.0.0/24"]
 }
 
 variable "public_ip" {
-  default	= "pt19881-pub-ip"
+  default	= "public-ip-pa883-prod-01"
 }
 
 variable "nsg_name" {
-  default	= "pt19881-nsg"
+  default	= "nsg-pa883-prod-01"
 }
 
 variable "nic_name" {
-  default	= "pt19881-nic"
+  default	= "nic-pa883-prod-01"
 }
 
 variable "nic_config" {
-  default	= "pt19881-nic-config"
+  default	= "nic-config-pa883-prod-01"
 }
 
 variable "vm_size" {
@@ -51,17 +51,13 @@ variable "vm_size" {
 }
 
 variable "os_disk_name" {
-  default	= "pt19881OsDisk"
+  default	= "os-disk-pa883-prod-01"
 }
 
 variable "username" {
   type        = string
   description = "The username for the local account that will be created on the new VM."
   default     = "partha"
-}
-
-variable password {
-  default     = "Kukapilla@1269"
 }
 
 variable scfile{
