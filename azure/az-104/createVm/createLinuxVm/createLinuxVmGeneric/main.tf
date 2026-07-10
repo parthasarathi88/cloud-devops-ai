@@ -104,7 +104,7 @@ resource "azurerm_linux_virtual_machine" "pt1988-tf-az104_vm" {
   resource_group_name   = azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.pt1988-tf-az104_nic.id]
   size                  = var.vm_size
-  disable_password_authentication = false
+  disable_password_authentication = true
 
   os_disk {
     name                 = var.os_disk_name
@@ -122,6 +122,10 @@ resource "azurerm_linux_virtual_machine" "pt1988-tf-az104_vm" {
   computer_name  = "pt1988vm"
   admin_username = var.username
 
+  admin_ssh_key {
+    username   = var.username
+    public_key = azurerm_ssh_public_key.ssh_key.public_key
+  }
 
   boot_diagnostics {
     storage_account_uri = azurerm_storage_account.my_storage_account.primary_blob_endpoint
