@@ -119,20 +119,11 @@ And it handles everything for you - including Azure login.
 
 ### Step 2: Initialize Terraform
 ```bash
-# Option 1: Using backend-config.hcl
-terraform init -backend-config=backend-config.hcl -lock=false
-
-# Option 2: Using the provided script
+# Option 1: Using the provided script
 ./init-terraform.sh
 
-# Option 3: Manual init with flags (for network filesystems)
-terraform init \
-  -backend-config="resource_group_name=YOUR_RESOURCE_GROUP" \
-  -backend-config="storage_account_name=YOUR_STORAGE_ACCOUNT" \
-  -backend-config="container_name=tfstate" \
-  -backend-config="key=terraform.tfstate" \
-  -backend-config="access_key=YOUR_STORAGE_ACCOUNT_ACCESS_KEY" \
-  -lock=false
+# Option 2: Manual init (local backend)
+terraform init -lock=false
 ```
 
 ### Step 3: Plan & Apply
@@ -170,12 +161,12 @@ subscription_id = "YOUR_SUBSCRIPTION_ID"
 ├── variables.tf             # Variable definitions
 ├── outputs.tf               # Output values
 ├── ssh.tf                   # SSH key management resources
-├── backend-config.hcl       # Azure backend configuration
+├── backend-config.hcl       # Optional legacy Azure backend configuration (not used by default)
 ├── init-terraform.sh        # Initialization script
 ├── .terraform/              # Terraform working directory (generated)
 ├── .terraform.lock.hcl      # Provider lock file (generated)
 ├── .gitignore               # Git ignore rules
-└── terraform.tfstate*       # State files (stored in Azure)
+└── terraform.tfstate*       # Local Terraform state files
 ```
 
 ## Variables
@@ -221,9 +212,10 @@ terraform apply -lock=false
 ```
 
 ### Error: "Backend configuration block has changed"
-Reinitialize with reconfigure flag:
+If you previously initialized with Azure remote backend, clear local Terraform metadata and reinitialize for local state:
 ```bash
-terraform init -backend-config=backend-config.hcl -lock=false -reconfigure
+Remove-Item .terraform -Recurse -Force
+terraform init -backend=false -lock=false
 ```
 
 ### Error: "application was not found in the directory"
@@ -238,4 +230,3 @@ terraform destroy -lock=false
 
 ## References
 - [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
-- [Azure Storage Backend](https://www.terraform.io/language/settings/backends/azurerm)

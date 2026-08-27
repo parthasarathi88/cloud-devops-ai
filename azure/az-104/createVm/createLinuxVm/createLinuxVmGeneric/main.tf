@@ -113,9 +113,16 @@ resource "azurerm_linux_virtual_machine" "pt1988-tf-az104_vm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-jammy"
-    sku       = "22_04-lts-gen2"
+    # Old Ubuntu image config
+    # publisher = "Canonical"
+    # offer     = "0001-com-ubuntu-server-jammy"
+    # sku       = "22_04-lts-gen2"
+    # version   = "latest"
+
+    # New SUSE image config
+    publisher = "SUSE"
+    offer     = "sles-15-sp5"
+    sku       = "gen2"
     version   = "latest"
   }
 

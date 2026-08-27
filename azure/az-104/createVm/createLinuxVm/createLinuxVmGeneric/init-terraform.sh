@@ -1,29 +1,14 @@
 #!/bin/bash
-# Terraform initialization script for Azure backend with network filesystem compatibility
+# Terraform initialization script for local state with network filesystem compatibility
 # Usage: ./init-terraform.sh [terraform init flags]
 
 set -e
 
-# Backend configuration
-RESOURCE_GROUP="YOUR_RESOURCE_GROUP"
-STORAGE_ACCOUNT="YOUR_STORAGE_ACCOUNT"
-CONTAINER="tfstate"
-KEY="terraform.tfstate"
-ACCESS_KEY="YOUR_STORAGE_ACCOUNT_ACCESS_KEY"
-
-echo "🔧 Initializing Terraform with Azure backend..."
-echo "   Resource Group: $RESOURCE_GROUP"
-echo "   Storage Account: $STORAGE_ACCOUNT"
-echo "   Container: $CONTAINER"
+echo "🔧 Initializing Terraform with local state..."
 echo ""
 
-# Initialize Terraform with backend config
+# Initialize Terraform using local backend (default)
 terraform init \
-  -backend-config="resource_group_name=$RESOURCE_GROUP" \
-  -backend-config="storage_account_name=$STORAGE_ACCOUNT" \
-  -backend-config="container_name=$CONTAINER" \
-  -backend-config="key=$KEY" \
-  -backend-config="access_key=$ACCESS_KEY" \
   -lock=false \
   "$@"
 
