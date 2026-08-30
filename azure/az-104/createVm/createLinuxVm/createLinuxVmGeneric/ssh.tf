@@ -3,15 +3,9 @@ resource "random_pet" "ssh_key_name" {
   separator = ""
 }
 
-# Use local private key file instead of generating one
+# Use the existing public key for VM authentication.
 locals {
-  private_key_path = "${path.module}/pvt-key.pem"
   public_key_path  = "${path.module}/pvt-key.pub"
-}
-
-# Read the existing private key file
-data "local_file" "private_key" {
-  filename = local.private_key_path
 }
 
 # Read the existing public key file
@@ -30,12 +24,6 @@ resource "azurerm_ssh_public_key" "ssh_key" {
 output "key_data" {
   value       = azurerm_ssh_public_key.ssh_key.public_key
   description = "SSH public key from pvt-key.pub"
-}
-
-output "priv_key_data" {
-  value       = data.local_file.private_key.content
-  sensitive   = true
-  description = "SSH private key from pvt-key.pem (sensitive)"
 }
 
 output "ssh_key_id" {
